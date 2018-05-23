@@ -397,6 +397,9 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                                       y: (frame.height/2) - (image.size.height/2),
                                       width: image.size.width,
                                       height: image.size.height)
+                let clippingPath = UIBezierPath(roundedRect: centered, cornerRadius: trackRectangle.height/2).cgPath;
+                ctx.addPath(clippingPath)
+                ctx.clip()
                 ctx.draw(cgImage, in: centered)
             }
 
